@@ -12,7 +12,7 @@
 #define HOME_L LALT_T(KC_L)
 #define HOME_SCLN LGUI_T(KC_SCLN)
 
-#define MOVE LT(_MOVE, KC_ESC)
+#define MOVE LT(_MOVE, KC_SPC)
 
 #define CODE LT(_CODE, KC_RIGHT)
 #define UTIL LT(_UTIL, KC_UP)
@@ -38,11 +38,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  -   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | MOVE |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
+ * | ESC  |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------| MEDIA |    | GAME  |------+------+------+------+------+------|
  * |CAPSW |   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  | Del  |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LEFT | DOWN | CODE | /Space  /       \Enter \  | UTIL |BackSP| LGUI |
+ *                   | LEFT | DOWN | CODE | / MOVE  /       \Enter \  | UTIL |BackSP| LGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -50,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT(
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV,
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-  MOVE,     HOME_A, HOME_S,  HOME_D,  HOME_F,  KC_G,                      KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN, KC_QUOT,
+  KC_ESC,   HOME_A, HOME_S,  HOME_D,  HOME_F,  KC_G,                      KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN, KC_QUOT,
   CAPSWRD,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  MEDIA,    GAME,     KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_DEL,
-                             KC_LEFT, DOWN,    CODE,  KC_SPC,   KC_BSPC,  UTIL,    KC_ENT,  KC_LGUI
+                             KC_LEFT, DOWN,    CODE,  MOVE,     KC_BSPC,  UTIL,    KC_ENT,  KC_LGUI
 ),
 
 [_MOVE] = LAYOUT(
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      | F11  | F12  |      |      |      |-------|    |-------|   |  |   _  |   +  |   {  |   }  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LEFT | DOWN | CODE | /Space  /       \Enter \  | UTIL |BackSP| LGUI |
+ *                   | LEFT | DOWN | CODE | / MOVE  /       \Enter \  | UTIL |BackSP| LGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      |   [  |   ]  |      |   \  |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LEFT | DOWN | CODE | /Space  /       \Enter \  | UTIL |BackSP| LGUI |
+ *                   | LEFT | DOWN | CODE | / MOVE  /       \Enter \  | UTIL |BackSP| LGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------| MEDIA |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LEFT | DOWN | CODE | /Space  /       \Enter \  | UTIL |BackSP| LGUI |
+ *                   | LEFT | DOWN | CODE | / MOVE  /       \Enter \  | UTIL |BackSP| LGUI |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -141,8 +141,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * | CTRL |      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   |      | LALT  |      | /Space  /       \Enter \  |      |BackSP| LGUI |
- *                   |      |      |      |/       /         \      \ |      |      |      |
+*                   |      | LALT  |      | / MOVE  /       \Enter \  | UTIL |BackSP| LGUI |
+*                   |      |       |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
  [_GAME] = LAYOUT(
@@ -150,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
   KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    _______,                   _______, KC_J,    KC_K,    KC_L,    KC_SCLN, _______,
   KC_LCTL, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-                             XXXXXXX, KC_LALT, XXXXXXX, _______, _______, _______, _______, _______
+                             XXXXXXX, KC_LALT, XXXXXXX, KC_SPC,  _______, _______, UTIL,    _______
   )
 };
 
